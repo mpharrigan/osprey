@@ -9,6 +9,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.types import (TypeDecorator, Text, Float, Integer, Enum,
                               DateTime, String, Interval)
 from sqlalchemy.orm import Session
+from sqlalchemy.pool import NullPool
 Base = declarative_base()
 
 __all__ = ['Trial']
@@ -69,7 +70,7 @@ class Trial(Base):
 
 def make_session(uri, project_name, echo=False):
     Trial.set_default_project_name(project_name)
-    engine = create_engine(uri, echo=echo)
+    engine = create_engine(uri, echo=echo, poolclass=NullPool)
     Base.metadata.create_all(engine)
     session = Session(engine)
     return session
