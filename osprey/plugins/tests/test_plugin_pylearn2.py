@@ -1,3 +1,4 @@
+from __future__ import print_function, absolute_import, division
 from argparse import Namespace
 import json
 import numpy as np

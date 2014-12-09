@@ -122,3 +122,21 @@ class SklearnDatasetLoader(BaseDatasetLoader):
         y = bunch[self.y_name]
 
         return X, y
+
+
+class MSMBuilderDatasetLoader(BaseDatasetLoader):
+    short_name = 'msmbuilder'
+
+    def __init__(self, path, mode='r', fmt=None, verbose=False, **kwargs):
+        self.path = path
+        self.mode = mode
+        self.fmt = fmt
+        self.verbose = verbose
+        self.kwargs = kwargs
+
+    def load(self):
+        from msmbuilder.dataset import dataset
+
+        ds = dataset(path=self.path, mode=self.mode, fmt=self.fmt,
+                     verbose=self.verbose, **self.kwargs)
+        return ds, None
