@@ -17,6 +17,4 @@ function this_dir {
 
 DIR=$(this_dir)
 
-$DIR/verify-future-imports-hook
 $DIR/remove-trailing-whitepace-hook
-$DIR/flake8-hook
