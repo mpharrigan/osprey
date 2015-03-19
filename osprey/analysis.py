@@ -68,9 +68,14 @@ def summarize(df):
         The results DataFrame
     """
 
+    print("Statuses")
+    print("--------")
     print(df['status'].value_counts())
 
     if 'trace_summary' in df.columns:
+        print("")
+        print("Traceback Summaries")
+        print("-------------------")
         print(df['trace_summary'].value_counts())
 
 
