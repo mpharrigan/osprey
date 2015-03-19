@@ -137,6 +137,8 @@ def clean_results(df, *, dropna=True, remove_novar=True, compute_median=True,
         cdf['mymean_train_score'] = cdf.apply(
             lambda r: np.mean(r['train_scores']), axis=1)
 
+    return cdf
+
 
 def aggregate(cdf, group_by, *, max_by='mean_test_score', include=None):
     """Aggregate by a column, find max score, and show assoc parameters
